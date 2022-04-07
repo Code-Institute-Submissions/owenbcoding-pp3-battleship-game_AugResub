@@ -29,7 +29,7 @@ The deployment terminal is set to 80 columns by 24 rows. That means that each li
 
 -----
 # User Stories
- - The user will given 2 ships
+ - The user will be given 2 ships
  - The user will have 10 bullets to try to hit the ships
  - The user will be able to input where on the grid to hit the target
  - The user can only hit the ship if its in a column 

@@ -28,4 +28,8 @@ Connect your GitHub repository and deploy as normal.
 The deployment terminal is set to 80 columns by 24 rows. That means that each line of text needs to be 80 characters or less otherwise it will be wrapped onto a second line.
 
 -----
-Happy coding!
+# User Stories
+ - The user will given 2 ships
+ - The user will have 10 bullets to try to hit the ships
+ - The user will be able to input where on the grid to hit the target
+ - The user can only hit the ship if its in a column 

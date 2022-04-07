@@ -28,6 +28,12 @@ Connect your GitHub repository and deploy as normal.
 The deployment terminal is set to 80 columns by 24 rows. That means that each line of text needs to be 80 characters or less otherwise it will be wrapped onto a second line.
 
 -----
+# ------BATTLESHIP-GAME-------
+ - Pre-reqs: Loops, Strings, Arrays, 2D Arrays, Global Variables, Methods
+ - You will have 10 bullets to take down the ships that are placed down
+ - You can choose one column such as A3 to indicate where to shoot,
+ - A ship cannot be placed diagonally, so if a shot hits the rest of the ship is one of 4 directions, left, right, up, and down
+
 # User Stories
  - The user will be given 2 ships
  - The user will have 10 bullets to try to hit the ships

@@ -1,4 +1,18 @@
-# Your code goes here.
-# You can delete these comments, but do not change the name of this file
-# Write your code to expect a terminal of 80 characters wide and 24 rows high
+import random
+import time
 
+ships = 2
+
+ammo = 10
+
+ships_sunk = 0
+
+size = int(input("How Big Should the grid size be? "))
+
+def generateGrid():
+    grid = []
+    for i in range(0,size):
+        grid.append([])
+        for j in range(0,size):
+            grid[i].append(".")
+    return grid

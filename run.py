@@ -16,3 +16,10 @@ def generateGrid():
         for j in range(0,size):
             grid[i].append(".")
     return grid
+
+def checkForHit(row, col):
+    if grid[row][col] == "0":
+        return True
+    return False
+
+computer_grid = generateGrid()

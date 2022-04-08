@@ -35,7 +35,7 @@ The deployment terminal is set to 80 columns by 24 rows. That means that each li
   - A ship cannot be placed diagonally, so if a shot hits the rest of the ship is one of 4 directions, left, right, up, and down
 
 # User Stories
- - The user will be given 2 ships
- - The user will have 10 bullets to try to hit the ships
+ - The user will be given 5 ships
+ - The user will have 50 bullets to try to hit the ships
  - The user will be able to input where on the grid to hit the target
  - The user can only hit the ship if its in a column 

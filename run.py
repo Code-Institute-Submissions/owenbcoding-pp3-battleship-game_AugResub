@@ -1,11 +1,15 @@
 import random
 import time
 
-ships = 2
+ships = 5
 
-ammo = 10
+ammo = 20
 
 ships_sunk = 0
+
+grid = []
+
+alphabet = "ABCDEFGHIJKLMNOPQRSTUVWXYZ"
 
 size = int(input("How Big Should the grid size be? "))
 
@@ -55,13 +59,6 @@ def shipPosition():
 player_grid = generateGrid()
 
 shipPosition()
-
-
-for row in range(0, size):
-    print(*(f"{computer_grid[row][col]}\t" for col in range(0, size)))
-
-for row in range(0, size):
-    print(*(f"-" for col in range(0, size)))
 
 for row in range(0, size):
     print(*(f"{player_grid[row][col]}\t" for col in range(0, size)))

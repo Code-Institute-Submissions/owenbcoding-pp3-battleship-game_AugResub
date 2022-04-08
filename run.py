@@ -55,3 +55,13 @@ def shipPosition():
 player_grid = generateGrid()
 
 shipPosition()
+
+
+for row in range(0, size):
+    print(*(f"{computer_grid[row][col]}\t" for col in range(0, size)))
+
+for row in range(0, size):
+    print(*(f"-" for col in range(0, size)))
+
+for row in range(0, size):
+    print(*(f"{player_grid[row][col]}\t" for col in range(0, size)))

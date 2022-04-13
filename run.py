@@ -71,6 +71,8 @@ def main():
     # global GAME_OVER
 
     print_grid(grid)
+    print("Number of ships remaining: " +
+          str(ships - num_of_ships_sunk))
 
     # while game_over is False:
     #     print_grid()

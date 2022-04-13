@@ -66,6 +66,39 @@ def print_grid(grid=None, for_player='USER'):
     return True
 
 
+def shipPosition():
+    for ship in range(0, num_of_ships):
+        ship_size = random.randint(3, 5)
+        direction = random.randint(1, 4)
+        rowstart = random.randint(0, len(grid))
+        colstart = random.randint(0, len(grid))
+        for i in range(0, ship_size):
+            if rowstart + 1 > len(grid) or rowstart - 1 < 0 or colstart + 1 > len(grid) or colstart - 1 < 0:
+                grid[rowstart][colstart] = "."
+                rowstart = random.randint(0, len(grid))
+                colstart = random.randint(0, len(grid))
+            if direction == 1:
+                if not grid[rowstart - 1][colstart] == "0":
+                    grid[rowstart - 1][colstart] = "0"
+                    rowstart = rowstart - 1
+            if direction == 2:
+                if not grid[rowstart][colstart + 1] == "0":
+                    grid[rowstart][colstart + 1] = "0"
+                    colstart = colstart + 1
+            if direction == 3:
+                if not grid[rowstart + 1][colstart] == "0":
+                    grid[rowstart + 1][colstart] = "0"
+                    rowstart = rowstart + 1
+            if direction == 4:
+                if not grid[rowstart][colstart - 1] == "0":
+                    grid[rowstart][colstart - 1] = "0"
+                    colstart = colstart - 1
+            grid[rowstart][colstart] = "0"
+
+
+shipPosition()
+
+
 def main():
     """Main entry point of application that runs the game loop"""
     # global GAME_OVER

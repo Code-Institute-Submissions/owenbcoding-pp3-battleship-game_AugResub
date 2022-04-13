@@ -5,6 +5,7 @@
 # get a row of letters and numbers on the left side and top of the grid
 
 import random
+import time
 
 grid = [[]]
 
@@ -23,7 +24,7 @@ alphabet = "ABCDEFGHIJKLMNOPQRSTUVWXYZ"
 size = int(input("How Big Should the grid size be? "))
 
 print("-----Welcome to Battleship Game-----")
-print("You have 20 bullets to take down 5 ships, may the battle begin!")
+print("You have 20 bullets to take down 2 ships, may the battle begin!")
 
 
 def generate_grid():
@@ -46,6 +47,34 @@ def checkForHit(row, col):
 
 
 for_player_grid = generate_grid()
+
+
+def place_ship(row, col, direction, length):
+    """Based on direction will call helper method to try and place a ship on the grid"""
+    global grid_size
+
+    start_row, end_row, start_col, end_col = row, row + 1, col, col + 1
+    if direction == "left":
+        if col - length < 0:
+            return False
+        start_col = col - length + 1
+
+    elif direction == "right":
+        if col + length >= grid_size:
+            return False
+        end_col = col + length
+
+    elif direction == "up":
+        if row - length < 0:
+            return False
+        start_row = row - length + 1
+
+    elif direction == "down":
+        if row + length >= grid_size:
+            return False
+        end_row = row + length
+
+    return place_ship(start_row, end_row, start_col, end_col)
 
 
 def shipPosition():
@@ -77,8 +106,9 @@ def shipPosition():
                     colstart = colstart - 1
         for_player_grid[rowstart][colstart] = "0"
 
+
+shipPosition()
 # player_grid = generate_grid()
-# shipPosition()
 
 
 # for row in range(0, size):
@@ -128,6 +158,21 @@ def print_grid(grid=None, for_player='USER'):
     return True
 
 
+def check_for_game_over():
+    """If all ships have been sunk or we run out of bullets its game over"""
+    global num_of_ships_sunk
+    global num_of_ships
+    global bullets_left
+    global game_over
+
+    if ships == num_of_ships_sunk:
+        print("Congrats you won!")
+        game_over = True
+    elif bullets_left <= 0:
+        print("Sorry, you lost! You ran out of bullets, try again next time!")
+        game_over = True
+
+
 def main():
     """Main entry point of application that runs the game loop"""
     global GAME_OVER
@@ -135,6 +180,9 @@ def main():
     grid = generate_grid()
     print_grid(grid)
 
+    while game_over is False:
+        print_grid()
+        print("Number of ships remaining: " + str(ships - ships_sunk))
     # decide_first_turn()  # random int here 0, 1
 
     # while True:

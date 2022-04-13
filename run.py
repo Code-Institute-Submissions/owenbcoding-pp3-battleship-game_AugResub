@@ -91,7 +91,7 @@ def shipPosition():
                     rowstart = rowstart + 1
             if direction == 4:
                 if not grid[rowstart][colstart - 1] == "0":
-                    grid[rowstart][colstart - 1] = "0"
+                    [rowstart][colstart - 1] = "0"
                     colstart = colstart - 1
             grid[rowstart][colstart] = "0"
 

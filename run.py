@@ -22,7 +22,7 @@ grid = [
 
 num_of_ships = 2
 
-AMMO_USER = 20
+AMMO_USER = 35
 
 ships_sunk = 0
 
@@ -37,7 +37,7 @@ alphabet = "ABCDEFGHIJKLMNOPQRSTUVWXYZ"
 # size = int(input("How Big Should the grid size be? "))
 
 print("-----Welcome to Battleships Game-----")
-print("You have 20 bullets to take down 2 ships, may the battle begin!")
+print("You have 35 Torpedos to take down 2 ships, let the battle begin!")
 
 
 def print_grid(grid=None, for_player='USER'):
@@ -64,85 +64,6 @@ def print_grid(grid=None, for_player='USER'):
         print(str(i), end=" ")
     print("")
     return True
-
-
-def ship(start_row, end_row, start_col, end_col):
-    """Will check the row or column to see if it is safe to place a ship there"""
-    global grid
-    global ship_positions
-
-    all_valid = True
-    for r in range(start_row, end_row):
-        for c in range(start_col, end_col):
-            if grid[r][c] != ".":
-                all_valid = False
-                break
-    if all_valid:
-        ship_positions.append([start_row, end_row, start_col, end_col])
-        for r in range(start_row, end_row):
-            for c in range(start_col, end_col):
-                grid[r][c] = "O"
-    return all_valid
-
-
-def place_ship(row, col, direction, length):
-    """Based on direction will call helper method to try and place a ship on the grid"""
-    global grid
-
-    start_row, end_row, start_col, end_col = row, row + 1, col, col + 1
-    if direction == "left":
-        if col - length < 0:
-            return False
-        start_col = col - length + 1
-
-    elif direction == "right":
-        if col + length >= grid:
-            return False
-        end_col = col + length
-
-    elif direction == "up":
-        if row - length < 0:
-            return False
-        start_row = row - length + 1
-
-    elif direction == "down":
-        if row + length >= grid:
-            return False
-        end_row = row + length
-
-    return place_ship(start_row, end_row, start_col, end_col)
-
-
-def create_grid():
-    """Will create a 10x10 grid and randomly place down ships
-       of different sizes in different directions"""
-    global grid
-    global grid_size
-    global num_of_ships
-    global ship_positions
-
-    random.seed(time.time())
-
-    rows, cols = (grid, grid)
-
-    grid = []
-    for r in range(rows):
-        row = []
-        for c in range(cols):
-            row.append(".")
-        grid.append(row)
-
-    num_of_ships_placed = 0
-
-    ship_positions = []
-
-    while num_of_ships_placed != num_of_ships:
-        random_row = random.randint(0, rows - 1)
-        random_col = random.randint(0, cols - 1)
-        direction = random.choice(["left", "right", "up", "down"])
-        num_of_ships = random.randint(3, 5)
-        if num_of_ships(random_row, random_col, direction, num_of_ships):
-            num_of_ships_placed += 1
 
 
 def main():

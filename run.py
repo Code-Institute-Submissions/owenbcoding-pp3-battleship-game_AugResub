@@ -66,6 +66,53 @@ def print_grid(grid=None, for_player='USER'):
     return True
 
 
+def ship(start_row, end_row, start_col, end_col):
+    """Will check the row or column to see if it is safe to place a ship there"""
+    global grid
+    global ship_positions
+
+    all_valid = True
+    for r in range(start_row, end_row):
+        for c in range(start_col, end_col):
+            if grid[r][c] != ".":
+                all_valid = False
+                break
+    if all_valid:
+        ship_positions.append([start_row, end_row, start_col, end_col])
+        for r in range(start_row, end_row):
+            for c in range(start_col, end_col):
+                grid[r][c] = "O"
+    return all_valid
+
+
+def place_ship(row, col, direction, length):
+    """Based on direction will call helper method to try and place a ship on the grid"""
+    global grid_size
+
+    start_row, end_row, start_col, end_col = row, row + 1, col, col + 1
+    if direction == "left":
+        if col - length < 0:
+            return False
+        start_col = col - length + 1
+
+    elif direction == "right":
+        if col + length >= grid:
+            return False
+        end_col = col + length
+
+    elif direction == "up":
+        if row - length < 0:
+            return False
+        start_row = row - length + 1
+
+    elif direction == "down":
+        if row + length >= grid:
+            return False
+        end_row = row + length
+
+    return place_ship(start_row, end_row, start_col, end_col)
+
+
 def main():
     """Main entry point of application that runs the game loop"""
     # global GAME_OVER

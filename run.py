@@ -3,25 +3,27 @@
 # Warn the user if their guess is off-grid
 # (shoot_bullet function) player grid of index 5, 5 computer grid of 5, 5 has an 0 but player does not then it is a hit
 # get a row of letters and numbers on the left side and top of the grid
-#
 
 import random
-import time
+
+grid = [[]]
+
+grid_size = 10
 
 ships = 2
 
-ammo = 20
 AMMO_USER = 20
-AMMO_COMPUTER = 20
 
 ships_sunk = 0
 
-ship_positions = [[]]
+ship_positions = []
+
+alphabet = "ABCDEFGHIJKLMNOPQRSTUVWXYZ"
 
 size = int(input("How Big Should the grid size be? "))
 
 print("-----Welcome to Battleship Game-----")
-print("You have 50 bullets to take down 5 ships, may the battle begin!")
+print("You have 20 bullets to take down 5 ships, may the battle begin!")
 
 
 def generate_grid():
@@ -31,7 +33,7 @@ def generate_grid():
         for j in range(0, size):
             random_number = random.randint(0, size)
             if j == random_number:
-                grid[i].append("X")
+                grid[i].append("0")
             else:
                 grid[i].append("*")
     return grid
@@ -43,65 +45,74 @@ def checkForHit(row, col):
     return False
 
 
-def validate_grid_and_place_ship(start_row, end_row, start_col, end_col):
-    """Will check the row or column to see if it is safe to place a ship there"""
-    ship_positions = []
-
-    all_valid = True
-    for r in range(start_row, end_row):
-        for c in range(start_col, end_col):
-            if grid[r][c] != ".":
-                all_valid = False
-                break
-    if all_valid:
-        ship_positions.append([start_row, end_row, start_col, end_col])
-        for r in range(start_row, end_row):
-            for c in range(start_col, end_col):
-                grid[r][c] = "O"
-    return all_valid
-
-
-computer_grid = generate_grid()
+for_player_grid = generate_grid()
 
 
 def shipPosition():
     for ship in range(0, ships):
         ship_size = random.randint(3, 5)
         direction = random.randint(1, 4)
-        rowstart = random.randint(0, len(computer_grid))
-        colstart = random.randint(0, len(computer_grid))
+        rowstart = random.randint(0, len(for_player_grid))
+        colstart = random.randint(0, len(for_player_grid))
         for i in range(0, ship_size):
-            if rowstart + 1 > len(computer_grid) or rowstart - 1 < 0 or colstart + 1 > len(computer_grid) or colstart - 1 < 0:
-                computer_grid[rowstart][colstart] = "."
-                rowstart = random.randint(0, len(computer_grid))
-                colstart = random.randint(0, len(computer_grid))
+            if rowstart + 1 > len(for_player_grid) or rowstart - 1 < 0 or colstart + 1 > len(for_player_grid) or colstart - 1 < 0:
+                for_player_grid[rowstart][colstart] = "."
+                rowstart = random.randint(0, len(for_player_grid))
+                colstart = random.randint(0, len(for_player_grid))
             if direction == 1:
-                if not computer_grid[rowstart - 1][colstart] == "0":
-                    computer_grid[rowstart - 1][colstart] = "0"
+                if not for_player_grid[rowstart - 1][colstart] == "0":
+                    for_player_grid[rowstart - 1][colstart] = "0"
                     rowstart = rowstart - 1
             if direction == 2:
-                if not computer_grid[rowstart][colstart + 1] == "0":
-                    computer_grid[rowstart][colstart + 1] = "0"
+                if not for_player_grid[rowstart][colstart + 1] == "0":
+                    for_player_grid[rowstart][colstart + 1] = "0"
                     colstart = colstart + 1
             if direction == 3:
-                if not computer_grid[rowstart + 1][colstart] == "0":
-                    computer_grid[rowstart + 1][colstart] = "0"
+                if not for_player_grid[rowstart + 1][colstart] == "0":
+                    for_player_grid[rowstart + 1][colstart] = "0"
                     rowstart = rowstart + 1
             if direction == 4:
-                if not computer_grid[rowstart][colstart - 1] == "0":
-                    computer_grid[rowstart][colstart - 1] = "0"
+                if not for_player_grid[rowstart][colstart - 1] == "0":
+                    for_player_grid[rowstart][colstart - 1] = "0"
                     colstart = colstart - 1
-        computer_grid[rowstart][colstart] = "0"
-
+        for_player_grid[rowstart][colstart] = "0"
 
 # player_grid = generate_grid()
 # shipPosition()
+
 
 # for row in range(0, size):
 #     print(*(f"{computer_grid[row][col]}\t" for col in range(0, size)))
 # print("player grid below")
 # for row in range(0, size):
-#     print(*(f"{player_grid[row][col]}\t" for col in range(0, size)))
+#     print(*(f"{for_player_grid[row][col]}\t" for col in range(0, size)))
+
+
+def print_grid(for_player='USER'):
+    """Will print the grid with rows A-J and columns 0-9"""
+    global grid
+    global alphabet
+
+    debug_mode = True
+
+    alphabet = alphabet[0: len(grid) + 1]
+
+    for row in range(len(grid)):
+        print(alphabet[row], end=") ")
+        for col in range(len(grid[row])):
+            if grid[row][col] == "O":
+                if debug_mode:
+                    print("O", end=" ")
+                else:
+                    print(".", end=" ")
+            else:
+                print(grid[row][col], end=" ")
+        print("")
+
+    print("  ", end=" ")
+    for i in range(len(grid[0])):
+        print(str(i), end=" ")
+    print("")
 
 
 def print_grid(grid=None, for_player='USER'):
@@ -123,7 +134,6 @@ def main():
 
     grid = generate_grid()
     print_grid(grid)
-    print_grid(grid, for_player="COMPUTER")
 
     # decide_first_turn()  # random int here 0, 1
 

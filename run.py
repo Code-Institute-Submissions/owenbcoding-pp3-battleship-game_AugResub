@@ -20,7 +20,7 @@ grid = [
     ['*', '*', '*', '*', '*', '*', '*', '*', '*', '*']
 ]
 
-ships = 2
+num_of_ships = 2
 
 AMMO_USER = 20
 
@@ -30,13 +30,13 @@ game_over = False
 
 num_of_ships_sunk = 0
 
-ship_positions = [[]]
+ship_positions = []
 
 alphabet = "ABCDEFGHIJKLMNOPQRSTUVWXYZ"
 
 # size = int(input("How Big Should the grid size be? "))
 
-print("-----Welcome to Battleship Game-----")
+print("-----Welcome to Battleships Game-----")
 print("You have 20 bullets to take down 2 ships, may the battle begin!")
 
 
@@ -87,7 +87,7 @@ def ship(start_row, end_row, start_col, end_col):
 
 def place_ship(row, col, direction, length):
     """Based on direction will call helper method to try and place a ship on the grid"""
-    global grid_size
+    global grid
 
     start_row, end_row, start_col, end_col = row, row + 1, col, col + 1
     if direction == "left":
@@ -113,13 +113,46 @@ def place_ship(row, col, direction, length):
     return place_ship(start_row, end_row, start_col, end_col)
 
 
+def create_grid():
+    """Will create a 10x10 grid and randomly place down ships
+       of different sizes in different directions"""
+    global grid
+    global grid_size
+    global num_of_ships
+    global ship_positions
+
+    random.seed(time.time())
+
+    rows, cols = (grid, grid)
+
+    grid = []
+    for r in range(rows):
+        row = []
+        for c in range(cols):
+            row.append(".")
+        grid.append(row)
+
+    num_of_ships_placed = 0
+
+    ship_positions = []
+
+    while num_of_ships_placed != num_of_ships:
+        random_row = random.randint(0, rows - 1)
+        random_col = random.randint(0, cols - 1)
+        direction = random.choice(["left", "right", "up", "down"])
+        num_of_ships = random.randint(3, 5)
+        if num_of_ships(random_row, random_col, direction, num_of_ships):
+            num_of_ships_placed += 1
+
+
 def main():
     """Main entry point of application that runs the game loop"""
     # global GAME_OVER
 
     print_grid(grid)
     print("Number of ships remaining: " +
-          str(ships - num_of_ships_sunk))
+          str(num_of_ships - num_of_ships_sunk))
+    print("Number of bullets left: " + str(AMMO_USER))
 
     # while game_over is False:
     #     print_grid()

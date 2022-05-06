@@ -2,16 +2,23 @@ from random import randint
 
 board = []
 
+turn_number = 1
+
 for x in range(0, 5):
     board.append(["0"] * 5)
 
 
 def print_board(board):
     for row in board:
-        print(board)
+        row_render = ""
+
+        for column in row:
+            row_render = row_render + " " + column
+
+        print(row_render)
 
 
-print("let's play Battleship!")
+print("let's play Battleships!")
 print_board(board)
 
 
@@ -29,7 +36,7 @@ print(ship_row)
 print(ship_col)
 
 for turn in range(4):
-    print("Turn"), turn + 1
+    turn + 1
 
 guess_row = int(input("Guess Row: "))
 guess_col = int(input("Guess Col: "))

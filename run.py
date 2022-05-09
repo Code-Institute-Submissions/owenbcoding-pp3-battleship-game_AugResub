@@ -2,6 +2,8 @@ from random import randint
 
 board = []
 
+board_row = 5
+
 turn_number = 1
 
 for x in range(0, 5):
@@ -9,8 +11,12 @@ for x in range(0, 5):
 
 
 def print_board(board):
-    for row in board:
-        row_render = ""
+    # Header print - turn into a simple for loop
+    print("    A B C D E")
+
+    # Body Print
+    for index_row, row in enumerate(board):
+        row_render = "%s |" % index_row
 
         for column in row:
             row_render = row_render + " " + column
@@ -35,23 +41,45 @@ ship_col = random_col(board)
 print(ship_row)
 print(ship_col)
 
+# for turn in range(4):
+#     turn + 1
+
+print("Pick a Number and a Letter")
+
+# Start of the game loop - move to a proper method/function
 for turn in range(4):
-    turn + 1
-
-guess_row = int(input("Guess Row: "))
-guess_col = int(input("Guess Col: "))
-
-print(ship_row)
-print(ship_col)
-
-if guess_row == ship_row and guess_col == ship_col:
-    print("Congratulations! You sank my battleship!")
-else:
-    if guess_row > range(5) or guess_col > range(5):
-        print("Oops, thanks not even in the ocean.")
-    elif board[guess_row][guess_col] == "X":
-        print("You Guessed that one already.")
+    print("Turn Number: %s" % turn)
+    guess_row = int(input("Guess Row: "))
+    guess_col = (input("Guess Col: "))
+try:
+    if guess_row == ship_row and guess_col == ship_col:
+        print("Congratulations! You sank my battleship!")
     else:
-        print("You missed my battleship!")
-        board[guess_row][guess_col] = "X"
-    print_board(board)
+        if guess_row > board_row:
+            # if guess_row > range(5) or guess_col > range(5):
+            print("Oops, thanks not even in the ocean.")
+        elif board[int(guess_row)][int(guess_col)] == 'X':
+
+            print("You Guessed that one already.")
+        else:
+            print("You missed my battleship!")
+            board[guess_row][guess_col] = "X"
+        print_board(board)
+        if turn == 3:
+            print("Game Over")
+except ValueError:
+    print("Ship Row: %s | Ship Column: %s" % (ship_row, ship_col))
+
+# ADD ALL CODE TO THIS LOOP
+
+# if guess_row == ship_row and guess_col == ship_col:
+#     print("Congratulations! You sank my battleship!")
+# else:
+#     if guess_row > range(5) or guess_col > range(5):
+#         print("Oops, thanks not even in the ocean.")
+#     elif board[guess_row][guess_col] == "X":
+#         print("You Guessed that one already.")
+#     else:
+#         print("You missed my battleship!")
+#         board[guess_row][guess_col] = "X"
+#     print_board(board)

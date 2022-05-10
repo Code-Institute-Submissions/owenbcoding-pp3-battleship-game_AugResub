@@ -51,8 +51,8 @@ print("Pick a Number and a Letter")
 # Start of the game loop - move to a proper method/function
 for turn in range(4):
     print("Turn Number: %s" % turn)
-    guess_col = (input("Guess Col: "))
-    guess_row = int(input("Guess Row: "))
+    guess_col = (input("Guess Col:\n"))
+    guess_row = int(input("Guess Row:\n"))
     try:
         if guess_row == ship_row and guess_col == ship_col:
             print("Congratulations! You sank my battleship!")

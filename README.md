@@ -1,3 +1,5 @@
+Live Project Link = https://pp3-battleships.herokuapp.com/
+
 ![chrome_3lTc5RF4H7](https://user-images.githubusercontent.com/43074374/167611433-a6d446aa-1f9b-434d-8496-f252a915a67d.png)
 
 # UI and UX
@@ -6,7 +8,7 @@
   This is a python battleship game where the player will be playing against the computer and will be able to pick a Column and a Row
 
 # User Stories
- - The user will be able to pick a column and row on the grid or ocean 
+ - The user will be able to pick a column and row on the grid 
  - The user will have four trys to try and sink the battleship
 
  # Wireframe 

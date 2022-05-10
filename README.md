@@ -1,3 +1,4 @@
+![chrome_3lTc5RF4H7](https://user-images.githubusercontent.com/43074374/167611433-a6d446aa-1f9b-434d-8496-f252a915a67d.png)
 
 # UI and UX
 
@@ -19,3 +20,5 @@
 
 # Deployment
   For Deployment I use Heroku to deploy my game
+  ![chrome_j5of1yc4DI](https://user-images.githubusercontent.com/43074374/167611018-f8601bb8-2a94-428e-a663-bc1b75cebeec.png)
+  ![chrome_xPdlEDIPRI](https://user-images.githubusercontent.com/43074374/167611139-12558fd4-50c5-454a-b005-766adfa8b57a.png)

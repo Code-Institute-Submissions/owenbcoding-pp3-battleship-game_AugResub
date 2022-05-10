@@ -1,7 +1,4 @@
 
-![chrome_fC7sNATtuD](https://user-images.githubusercontent.com/43074374/
-167570810-131a6aa4-9bba-4018-9f36-e2ad9d7a28e7.png)
-The UI and UX for the game is displayed in a grid like format
 # UI and UX
 
 # ------BATTLESHIP-GAME-------
@@ -21,4 +18,4 @@ The UI and UX for the game is displayed in a grid like format
   For testing the program I used the python debugger with in the IDE
 
 # Deployment
-  For Deployment I use Heroku Host my game
+  For Deployment I use Heroku to deploy my game

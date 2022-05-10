@@ -1,5 +1,7 @@
+
+![chrome_fC7sNATtuD](https://user-images.githubusercontent.com/43074374/
+167570810-131a6aa4-9bba-4018-9f36-e2ad9d7a28e7.png)
 The UI and UX for the game is displayed in a grid like format
-![chrome_fC7sNATtuD](https://user-images.githubusercontent.com/43074374/167570810-131a6aa4-9bba-4018-9f36-e2ad9d7a28e7.png)
 # UI and UX
 
 # ------BATTLESHIP-GAME-------
@@ -10,12 +12,13 @@ The UI and UX for the game is displayed in a grid like format
  - The user will have four trys to try and sink the battleship
 
  # Wireframe 
-
+![chrome_iVtOaxMZA7](https://user-images.githubusercontent.com/43074374/167574014-1eced650-cad3-4ad2-b43f-1a7eaf942348.png)
 
 # Technologies
-  python
+  The Technology I used was python
 
 # Testing
-  for testing the program I used the python debugger with in the IDE
+  For testing the program I used the python debugger with in the IDE
 
 # Deployment
+  For Deployment I use Heroku Host my game

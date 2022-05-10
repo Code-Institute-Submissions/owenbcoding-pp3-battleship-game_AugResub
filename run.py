@@ -26,7 +26,7 @@ def print_board(board):
 
 
 print("let's play Battleships!")
-print("Player plays against computer!")
+print("Player VS computer!")
 print_board(board)
 
 

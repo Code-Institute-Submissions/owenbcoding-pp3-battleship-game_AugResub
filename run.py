@@ -77,3 +77,7 @@ def main():
 
     if __name__ == '__main__':
         main()
+
+# 1: want to generate the board
+# 2: place random ships around the board (for computer) user plays against 
+# 3: will ask user for input check if yes hit ship if not missed (loop)

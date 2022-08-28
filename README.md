@@ -38,7 +38,6 @@ Project Link = https://pp3-battleships.herokuapp.com/
 
   In this Screenshot you can see the size of the ship and Me running out of turns
   
-  ![chrome_g7RdmLqSXN](https://user-images.githubusercontent.com/43074374/187060647-5f46fd4c-e74b-43d6-8c84-faa36174ba4f.png)
 
 
 

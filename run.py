@@ -3,7 +3,7 @@ from random import randint
 #Board for holding ship locations
 HIDDEN_BOARD = [[" "] * 8 for x in range(8)]
 # Board for displaying hits and misses
-GUESS_BOARD = [[" "] * 8 for i in range(8)
+GUESS_BOARD = [[" "] * 8 for i in range(8)]
 
 def print_board(board):
     print("  A B C D E F G H")
@@ -23,7 +23,6 @@ letters_to_numbers = {
     'G': 6,
     'H': 7
 }
-
 #computer create 5 ships
 def create_ships(board):
     for ship in range(5):

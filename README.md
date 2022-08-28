@@ -45,3 +45,14 @@ Project Link = https://pp3-battleships.herokuapp.com/
 # Deployment
   For Deployment I use Heroku to deploy the game
 
+  Go to your Apps in your heroku profile 
+
+  ![chrome_hmeiK7pB4i](https://user-images.githubusercontent.com/43074374/187060903-ac072171-ea8f-4530-848f-cb9554f5fbb5.png)
+
+  Then go to this page and select the github button 
+  
+  ![chrome_NQv83MFCsa](https://user-images.githubusercontent.com/43074374/187060942-fa6d611e-7a60-48e7-a31b-d883557c955b.png)
+
+  Then on the same page make sure your on the proper branch of your repo and click the deploy button 
+
+  ![chrome_jlcavSzU8z](https://user-images.githubusercontent.com/43074374/187061047-406a900c-f2b8-4b5b-864f-8b3de3721e64.png)
